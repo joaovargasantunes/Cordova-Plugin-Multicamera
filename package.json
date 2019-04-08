@@ -1,0 +1,20 @@
+{
+	"author": "Andre Abascal",
+	"bugs": {
+		"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/issues"
+	},
+	"description": "Cordova plugin for taking multiple pictures with the nativa camera via Camera2 API.",
+	"homepage": "https://github.com/AndreAbascal/cordova-plugin-multicamera",
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/blob/master/LICENSE"
+		}
+	],
+	"name": "cordova-plugin-multicamera",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera.git"
+	},
+	"version": "0.0.1"
+}

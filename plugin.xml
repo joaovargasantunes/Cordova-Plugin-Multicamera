@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-plugin-multicamera" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>MultiCamera</name>
+	<description>Cordova plugin for taking multiple pictures with your camera</description>
+	<license>MIT</license>
+	<keywords>cordova,android,multiple,pictures,camera,multicamera</keywords>
+	<repo>https://github.com/AndreAbascal/cordova-plugin-multicamera.git</repo>
+	<issue>https://github.com/AndreAbascal/cordova-plugin-multicamera/issues</issue>
+
+	<engines>
+		<engine name="cordova-android" version=">=6.3.0"/>
+	</engines>
+
+	<js-module name="MultiCamera" src="www/MultiCamera.js">
+		<clobbers target="MultiCamera" />
+	</js-module>
+
+	<platform name="android">
+		<framework src="com.android.support:support-v4:27.0.2" />
+		<framework src="com.android.support:support-v13:27.0.2" />
+		<framework src="com.android.support:cardview-v7:27.0.2" />
+		<framework src="com.android.support:appcompat-v7:27.0.2" />
+		<config-file target="AndroidManifest.xml" parent="/*">
+		 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+            <uses-permission android:name="android.permission.CAMERA" />
+			<uses-feature android:name="android.hardware.camera" />
+			<!-- <uses-feature android:name="android.hardware.camera.flash" android:required="false" /> -->
+			<!-- <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" /> -->
+            <uses-feature android:name="android.hardware.camera2.full" android:required="false"/>
+            <uses-feature android:name="android.hardware.camera2.autofocus" android:required="false"/>
+			<uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
+        </config-file>
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="MultiCamera">
+				<param name="android-package" value="cordova.plugin.multicamera.MultiCamera"/>
+			</feature>
+		</config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:name="cordova.plugin.multicamera.CameraActivity"
+				android:label="CameraActivity"
+				android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+				android:screenOrientation="landscape">
+				<intent-filter>
+        			<category android:name="android.intent.category.DEFAULT"/>
+    			</intent-filter>
+			</activity>
+		</config-file>
+
+		<source-file src="src/android/AutoFitTextureView.java" target-dir="src/cordova/plugin/multicamera" />
+		<source-file src="src/android/Camera2BasicFragment.java" target-dir="src/cordova/plugin/multicamera" />
+		<source-file src="src/android/CameraActivity.java" target-dir="src/cordova/plugin/multicamera" />
+		<source-file src="src/android/MultiCamera.java" target-dir="src/cordova/plugin/multicamera" />
+		<!-- <config-file target="res/values/colors.xml" parent="/*">
+			<resources>
+				<color name="control_background">#cc4285f4</color>
+			</resources>
+		</config-file> -->
+		<config-file target="res/values/strings.xml" parent="/*">
+			<string name="picture">Picture</string>
+			<string name="description_info">Info</string>
+			<string name="request_permission">This sample needs camera permission.</string>
+			<string name="camera_error">This device doesn\'t support Camera2 API.</string>
+			<string name="angle">Angle: </string>
+		</config-file>
+		<source-file src="src/android/res/values/colors.xml" target-dir="res/values" />
+		<source-file src="src/android/res/values/styles.xml" target-dir="res/values" />
+		<source-file src="src/android/res/layout/activity_camera.xml" target-dir="res/layout" />
+		<source-file src="src/android/res/layout/fragment_camera2_basic.xml" target-dir="res/layout" />
+		<source-file src="src/android/res/drawable/baseline_arrow_back_24_pressed.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/baseline_arrow_back_24.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/baseline_done_24.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/ic_flash_off.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/ic_flash_on.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/ripple.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable/state_pressed_ripple.xml" target-dir="res/drawable" />
+		<source-file src="src/android/res/drawable-xxxhdpi/lens.png" target-dir="res/drawable-xxxhdpi" />
+		<source-file src="src/android/res/drawable-xxhdpi/lens.png" target-dir="res/drawable-xxhdpi" />
+		<source-file src="src/android/res/drawable-xhdpi/lens.png" target-dir="res/drawable-xhdpi" />
+		<source-file src="src/android/res/drawable-hdpi/lens.png" target-dir="res/drawable-hdpi" />
+		<source-file src="src/android/res/drawable-mdpi/lens.png" target-dir="res/drawable-mdpi" />
+		<resource-file src="src/android/res/drawable-hdpi/lens.png" target="res/drawable-hdpi/lens.png" />
+		<!-- <config-file target="res/values/styles.xml" parent="/*">
+			<resources>
+				<style name="MaterialTheme" parent="Theme.AppCompat.Light.NoActionBar">
+					<item name="android:windowFullscreen">true</item>
+				</style>
+			</resources>
+		</config-file> -->
+	</platform>
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="MultiCamera">
+				<param name="ios-package" value="MultiCamera"/>
+			</feature>
+		</config-file>
+		<header-file src="src/ios/MultiCamera-Bridging-Header.h"/>
+		<source-file src="src/ios/CameraButton.swift"/>
+		<source-file src="src/ios/CameraPreview.swift"/>
+		<source-file src="src/ios/CameraViewController.swift"/>
+		<source-file src="src/ios/MultiCamera.swift"/>
+		<dependency id="cordova-plugin-add-swift-support" version="1.7.2"/>
+	</platform>
+
+</plugin>

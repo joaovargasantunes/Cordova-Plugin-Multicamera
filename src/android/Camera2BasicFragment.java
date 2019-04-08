@@ -289,60 +289,56 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
         public void onImageAvailable(ImageReader reader) {
 			// mBackgroundHandler.post(new ImageSaver(reader.acquireNextImage(), mFile));
 			// mBackgroundHandler.post(new ImageSaver(reader.acquireLatestImage(), mFile));
-            try{
-                mBackgroundHandler.post(new Runnable() {
-                    private final Image rImage = reader.acquireLatestImage();
-                    /**
-                    * The file we save the image into.
-                    */
-                    private final File rFile = mFile;
-                    @Override
-                    public void run () {
-                        // rImage = reader.acquireLatestImage();
-                        // rFile = mFile;
-                        // if(rImage){
-                            Image.Plane[] planes = rImage.getPlanes();
-                            if(planes.length < 1 || planes[0].getBuffer() == null){
-                                return;
-                            }
-                        // }else{
-                        //     return;
-                        // }
-                        ByteBuffer buffer = planes[0].getBuffer();
-                        byte[] bytes = new byte[buffer.remaining()];
-                        buffer.get(bytes);
-                        // rImage.close();
-                        FileOutputStream output = null;
-                        try {
-                            output = new FileOutputStream(rFile);
-                            output.write(bytes);
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        } finally {
-                            rImage.close();
-                            if (null != output) {
-                                try {
-                                    output.close();
-                                    String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
-                                    addFile(rFile.getAbsolutePath());
-                                    showToast("Foto tirada com sucesso 111111111.");
-                                    // showImageView(rImage);
-                                    // Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                                    // mImageView.setImageBitmap(bitmap);
-                                    // addBase64(encodedImage);
-                                    // this.images.put(encodedImage);
-                                } catch (IOException e) {
-                                    e.printStackTrace();
-                                }
-                            }
+			mBackgroundHandler.post(new Runnable() {
+				private final Image rImage = reader.acquireLatestImage();
+				/**
+				* The file we save the image into.
+				*/
+				private final File rFile = mFile;
+				@Override
+				public void run () {
+					// rImage = reader.acquireLatestImage();
+					// rFile = mFile;
+                    try {
+                        Image.Plane[] planes = rImage.getPlanes();
+                        if(planes.length < 1 || planes[0].getBuffer() == null){
+                            return;
                         }
-                        // make operation on UI - on example
-                        // on progress bar.
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+					ByteBuffer buffer = planes[0].getBuffer();
+					byte[] bytes = new byte[buffer.remaining()];
+					buffer.get(bytes);
+					// rImage.close();
+					FileOutputStream output = null;
+					try {
+						output = new FileOutputStream(rFile);
+						output.write(bytes);
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						rImage.close();
+						if (null != output) {
+							try {
+								output.close();
+								// String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
+								addFile(rFile.getAbsolutePath());
+								showToast("Foto tirada com sucesso 123.");
+								// showImageView(rImage);
+								// Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                				// mImageView.setImageBitmap(bitmap);
+								// addBase64(encodedImage);
+								// this.images.put(encodedImage);
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
+					}
+					// make operation on UI - on example
+					// on progress bar.
+				}
+			});
         }
 
     };

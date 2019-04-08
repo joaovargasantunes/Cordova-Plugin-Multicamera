@@ -300,7 +300,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
                     public void run () {
                         // rImage = reader.acquireLatestImage();
                         // rFile = mFile;
-                        if(rImage && rImage.getPlanes()){
+                        if(rImage.getPlanes()){
                             Image.Plane[] planes = rImage.getPlanes();
                             if(planes.length < 1 || planes[0].getBuffer() == null){
                                 return;

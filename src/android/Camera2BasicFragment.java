@@ -299,18 +299,10 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 				public void run () {
 					// rImage = reader.acquireLatestImage();
 					// rFile = mFile;
-                    try{
-                        if(rImage && rImage.getPlanes()){
-                            Image.Plane[] planes = rImage.getPlanes();
-                            if(planes.length < 1 || planes[0].getBuffer() == null){
-                                return;
-                            }
-                        }else{
-                            return;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+					Image.Plane[] planes = rImage.getPlanes();
+					if(planes.length < 1 || planes[0].getBuffer() == null){
+						return;
+					}
 					ByteBuffer buffer = planes[0].getBuffer();
 					byte[] bytes = new byte[buffer.remaining()];
 					buffer.get(bytes);
@@ -328,7 +320,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 								output.close();
 								String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
 								addFile(rFile.getAbsolutePath());
-								showToast("bbbbbbbb");
+								showToast("Foto tirada com sucesso.");
 								// showImageView(rImage);
 								// Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 				// mImageView.setImageBitmap(bitmap);

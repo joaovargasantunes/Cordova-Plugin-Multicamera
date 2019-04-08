@@ -318,9 +318,9 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 						if (null != output) {
 							try {
 								output.close();
-								String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
-								addFile(rFile.getAbsolutePath());
-								showToast("Foto tirada com sucesso.");
+								//String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
+								//addFile(rFile.getAbsolutePath());
+								//showToast("Foto tirada com sucesso.");
 								// showImageView(rImage);
 								// Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 				// mImageView.setImageBitmap(bitmap);

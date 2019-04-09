@@ -33,7 +33,8 @@
         <counts>
           <entry key="project.closed" value="1" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.9" value="1" />
+          <entry key="project.opened" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -59,24 +60,23 @@
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Camera2BasicFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="324" column="47" lean-forward="true" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+            <state relative-caret-position="414">
+              <caret line="325" column="47" selection-start-line="325" selection-start-column="47" selection-end-line="325" selection-end-column="47" />
               <folding>
-                <element signature="e#0#58412#0" expanded="true" />
-                <element signature="e#5925#5926#0" expanded="true" />
-                <element signature="e#5960#5961#0" expanded="true" />
-                <element signature="e#16443#16444#0" expanded="true" />
-                <element signature="e#16540#16541#0" expanded="true" />
-                <element signature="e#26030#26031#0" expanded="true" />
-                <element signature="e#26059#26060#0" expanded="true" />
-                <element signature="e#27197#27198#0" expanded="true" />
-                <element signature="e#27219#27220#0" expanded="true" />
-                <element signature="e#43885#43886#0" expanded="true" />
-                <element signature="e#43912#43913#0" expanded="true" />
+                <element signature="e#5974#5975#0" expanded="true" />
+                <element signature="e#6009#6010#0" expanded="true" />
+                <element signature="e#16492#16493#0" expanded="true" />
+                <element signature="e#16589#16590#0" expanded="true" />
+                <element signature="e#26079#26080#0" expanded="true" />
+                <element signature="e#26108#26109#0" expanded="true" />
+                <element signature="e#27246#27247#0" expanded="true" />
+                <element signature="e#27268#27269#0" expanded="true" />
+                <element signature="e#44171#44172#0" expanded="true" />
+                <element signature="e#44198#44199#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -109,6 +109,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -120,7 +121,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -182,20 +182,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Camera2BasicFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="324" column="47" lean-forward="true" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+        <state relative-caret-position="414">
+          <caret line="325" column="47" selection-start-line="325" selection-start-column="47" selection-end-line="325" selection-end-column="47" />
           <folding>
-            <element signature="e#0#58412#0" expanded="true" />
-            <element signature="e#5925#5926#0" expanded="true" />
-            <element signature="e#5960#5961#0" expanded="true" />
-            <element signature="e#16443#16444#0" expanded="true" />
-            <element signature="e#16540#16541#0" expanded="true" />
-            <element signature="e#26030#26031#0" expanded="true" />
-            <element signature="e#26059#26060#0" expanded="true" />
-            <element signature="e#27197#27198#0" expanded="true" />
-            <element signature="e#27219#27220#0" expanded="true" />
-            <element signature="e#43885#43886#0" expanded="true" />
-            <element signature="e#43912#43913#0" expanded="true" />
+            <element signature="e#5974#5975#0" expanded="true" />
+            <element signature="e#6009#6010#0" expanded="true" />
+            <element signature="e#16492#16493#0" expanded="true" />
+            <element signature="e#16589#16590#0" expanded="true" />
+            <element signature="e#26079#26080#0" expanded="true" />
+            <element signature="e#26108#26109#0" expanded="true" />
+            <element signature="e#27246#27247#0" expanded="true" />
+            <element signature="e#27268#27269#0" expanded="true" />
+            <element signature="e#44171#44172#0" expanded="true" />
+            <element signature="e#44198#44199#0" expanded="true" />
           </folding>
         </state>
       </provider>

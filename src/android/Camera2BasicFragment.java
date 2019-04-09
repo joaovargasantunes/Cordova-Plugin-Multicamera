@@ -104,6 +104,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
     private static final String FRAGMENT_DIALOG = "dialog";
 	private JSONArray images = new JSONArray();
 	private int USANDO_CAMERA = 0;
+    private int[] flashModeValues = new int[20];
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -214,7 +215,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 	/**
      * The {@link android.util.Size} of camera preview.
      */
-    private int countFotos = 0;
+    private int countFotos = 0;    
 
     /**
      * {@link CameraDevice.StateCallback} is called when {@link CameraDevice} changes its state.
@@ -903,6 +904,9 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 				*/
 
                 // Check if the flash is supported.
+                flashModeValues = characteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_MODES);
+
+                // showToast("CONTROL_AE_AVAILABLE_MODES"+ characteristics.get(CameraCharacteristics.CONTROL_AE_AVAILABLE_MODES));
                 Boolean available = characteristics.get(CameraCharacteristics.FLASH_INFO_AVAILABLE);
 				mFlashSupported = available == null ? false : available;
 				mCameraId = cameraId;
@@ -1190,11 +1194,25 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
         return (ORIENTATIONS.get(rotation) + mSensorOrientation + 270) % 360;
 	}
 
-	public void setFlash(CaptureRequest.Builder requestBuilder){
+	public void setFlash(CaptureRequest.Builder requestBuilder){       
 		if(isTorchOn){
+
+            for (int i = 0; i < flashModeValues.length; i++) {
+                Log.d("AVALIABLES: ", ""+flashModeValues[i]);
+            }
+
+
+            for (int i = 0; i < flashModeValues.length; i++) {
+                if(flashModeValues[i] == 0){
+                    requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_TORCH);                    
+                    return;
+                }
+            }
+
 			// requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
 			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
 			requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
+            
 		}else{
 			// requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
 			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);

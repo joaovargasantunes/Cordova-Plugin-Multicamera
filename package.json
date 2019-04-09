@@ -1,20 +1,45 @@
 {
-	"author": "Andre Abascal",
-	"bugs": {
-		"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/issues"
-	},
-	"description": "Cordova plugin for taking multiple pictures with the nativa camera via Camera2 API.",
-	"homepage": "https://github.com/AndreAbascal/cordova-plugin-multicamera",
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/blob/master/LICENSE"
-		}
-	],
-	"name": "cordova-plugin-multicamera",
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/AndreAbascal/cordova-plugin-multicamera.git"
-	},
-	"version": "0.0.1"
+  "_from": "git+https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+  "_id": "cordova-plugin-multicamera@0.0.1",
+  "_inBundle": false,
+  "_integrity": "",
+  "_location": "/cordova-plugin-multicamera",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "git",
+    "raw": "https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+    "rawSpec": "https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+    "saveSpec": "git+https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+    "fetchSpec": "https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+    "gitCommittish": null
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git#d7a3695447fed3454fef28aa8227ebe7705e3fe2",
+  "_spec": "https://github.com/joaovargasantunes/Cordova-Plugin-Multicamera.git",
+  "_where": "/Users/eduardofernandes/Documents/ionic/vistoria",
+  "author": {
+    "name": "Andre Abascal"
+  },
+  "bugs": {
+    "url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/issues"
+  },
+  "bundleDependencies": false,
+  "deprecated": false,
+  "description": "Cordova plugin for taking multiple pictures with the nativa camera via Camera2 API.",
+  "homepage": "https://github.com/AndreAbascal/cordova-plugin-multicamera",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/AndreAbascal/cordova-plugin-multicamera/blob/master/LICENSE"
+    }
+  ],
+  "name": "cordova-plugin-multicamera",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AndreAbascal/cordova-plugin-multicamera.git"
+  },
+  "version": "0.0.1"
 }

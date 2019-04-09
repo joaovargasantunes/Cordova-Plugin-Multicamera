@@ -28,9 +28,76 @@
         </counts>
       </usages-collector>
     </session>
+    <session id="-992753346">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="1" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.opened" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="97" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="97" />
+        </counts>
+      </usages-collector>
+    </session>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Camera2BasicFragment.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="324" column="47" lean-forward="true" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#58412#0" expanded="true" />
+                <element signature="e#5925#5926#0" expanded="true" />
+                <element signature="e#5960#5961#0" expanded="true" />
+                <element signature="e#16443#16444#0" expanded="true" />
+                <element signature="e#16540#16541#0" expanded="true" />
+                <element signature="e#26030#26031#0" expanded="true" />
+                <element signature="e#26059#26060#0" expanded="true" />
+                <element signature="e#27197#27198#0" expanded="true" />
+                <element signature="e#27219#27220#0" expanded="true" />
+                <element signature="e#43885#43886#0" expanded="true" />
+                <element signature="e#43912#43913#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>click(</find>
+      <find>takePicture</find>
+      <find>capture(</find>
+      <find>foto ri</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Camera2BasicFragment.java" />
+      </list>
+    </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="23" />
@@ -42,7 +109,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -55,6 +121,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -90,20 +157,20 @@
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="2560" height="1353" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32965735" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
       <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32965735" />
+      <window_info id="Structure" order="2" side_tool="true" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="0" show_stripe_button="false" />
+      <window_info anchor="bottom" id="TODO" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Theme Preview" order="1" />
+      <window_info anchor="right" id="Palette&#9;" order="2" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -111,10 +178,24 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/MultiCamera.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Camera2BasicFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="399">
+          <caret line="324" column="47" lean-forward="true" selection-start-line="324" selection-start-column="47" selection-end-line="324" selection-end-column="47" />
           <folding>
-            <element signature="e#0#7235#0" expanded="true" />
+            <element signature="e#0#58412#0" expanded="true" />
+            <element signature="e#5925#5926#0" expanded="true" />
+            <element signature="e#5960#5961#0" expanded="true" />
+            <element signature="e#16443#16444#0" expanded="true" />
+            <element signature="e#16540#16541#0" expanded="true" />
+            <element signature="e#26030#26031#0" expanded="true" />
+            <element signature="e#26059#26060#0" expanded="true" />
+            <element signature="e#27197#27198#0" expanded="true" />
+            <element signature="e#27219#27220#0" expanded="true" />
+            <element signature="e#43885#43886#0" expanded="true" />
+            <element signature="e#43912#43913#0" expanded="true" />
           </folding>
         </state>
       </provider>

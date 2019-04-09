@@ -103,6 +103,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final String FRAGMENT_DIALOG = "dialog";
 	private JSONArray images = new JSONArray();
+	private int USANDO_CAMERA = 0;
 
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -299,14 +300,14 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 				public void run () {
 					// rImage = reader.acquireLatestImage();
 					// rFile = mFile;
-                    try {
-                        Image.Plane[] planes = rImage.getPlanes();
-                        if(planes.length < 1 || planes[0].getBuffer() == null){
-                            return;
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    // try {
+                    Image.Plane[] planes = rImage.getPlanes();
+                    if(planes.length < 1 || planes[0].getBuffer() == null){
+                        return;
                     }
+                    // } catch (IOException e) {
+                    //     e.printStackTrace();
+                    // }
 					ByteBuffer buffer = planes[0].getBuffer();
 					byte[] bytes = new byte[buffer.remaining()];
 					buffer.get(bytes);
@@ -324,12 +325,12 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 								output.close();
 								// String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
 								addFile(rFile.getAbsolutePath());
-								showToast("Foto tirada com sucesso 123.");
+								showToast("Foto tirada com sucesso.");
 								// showImageView(rImage);
 								// Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 				// mImageView.setImageBitmap(bitmap);
 								// addBase64(encodedImage);
-								// this.images.put(encodedImage);
+								// this.images.put(encodedImage);                                
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -546,46 +547,47 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 
     private void showImageView(final File f, int bitmapRotation){
         final Activity activity = getActivity();
-        if(activity != null){
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-					// Camera2BasicFragment.this.countFotos++;
-					// TextView text1 = (TextView) activity.findViewById(activity.getResources().getIdentifier("text1", "id", activity.getPackageName()));
-					// text1.setText(Camera2BasicFragment.this.countFotos == 1 ? "1 foto" : Camera2BasicFragment.this.countFotos+" fotos");
-					Context ctx = getContext();
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inJustDecodeBounds = true;
-                    BitmapFactory.decodeFile(f.getAbsolutePath(),options);
-                    int imageHeight = options.outHeight;
-                    int imageWidth = options.outWidth;
-                    String imageType = options.outMimeType;
-                    BitmapFactory.Options opts = new BitmapFactory.Options();
-					int squareDim = dpToPx(48,ctx);
-					// Log.d(TAG,"dpToPx(48,ctx): "+squareDim);
-					Integer reqWidth = new Integer(squareDim);
-					Integer reqHeight = new Integer(squareDim);
-					// Log.d(TAG,"reqWidth: "+reqWidth);
-					// Log.d(TAG,"reqHeight: "+reqHeight);
-                    opts.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-					// Log.d(TAG,"opts.inSampleSize: "+opts.inSampleSize);
-					opts.inJustDecodeBounds = false;
-					/*Matrix matrix = new Matrix();
-					matrix.postRotate(bitmapRotation);*/
-					Bitmap myBitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),opts);
-					// myBitmap = Bitmap.createBitmap(myBitmap,0,0,myBitmap.getWidth(),myBitmap.getHeight(),matrix,true);
-                    ImageView imgView = new ImageView(ctx);
-                    imgView.setImageBitmap(myBitmap);
-                    imgView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-					// ScrollView hsv = (ScrollView) activity.findViewById(activity.getResources().getIdentifier("hsv", "id", activity.getPackageName()));
-					LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(squareDim,squareDim);
-                    layout.setMargins(dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx));
-                    imgView.setLayoutParams(layout);
-					LinearLayout ln = (LinearLayout) activity.findViewById(activity.getResources().getIdentifier("gallery", "id", activity.getPackageName()));
-					ln.addView(imgView,0);
-                }
-            });
-        }
+        return;
+        // if(activity != null){
+        //     activity.runOnUiThread(new Runnable() {
+        //         @Override
+        //         public void run() {
+		// 			// Camera2BasicFragment.this.countFotos++;
+		// 			// TextView text1 = (TextView) activity.findViewById(activity.getResources().getIdentifier("text1", "id", activity.getPackageName()));
+		// 			// text1.setText(Camera2BasicFragment.this.countFotos == 1 ? "1 foto" : Camera2BasicFragment.this.countFotos+" fotos");
+		// 			Context ctx = getContext();
+        //             BitmapFactory.Options options = new BitmapFactory.Options();
+        //             options.inJustDecodeBounds = true;
+        //             BitmapFactory.decodeFile(f.getAbsolutePath(),options);
+        //             int imageHeight = options.outHeight;
+        //             int imageWidth = options.outWidth;
+        //             String imageType = options.outMimeType;
+        //             BitmapFactory.Options opts = new BitmapFactory.Options();
+		// 			int squareDim = dpToPx(48,ctx);
+		// 			// Log.d(TAG,"dpToPx(48,ctx): "+squareDim);
+		// 			Integer reqWidth = new Integer(squareDim);
+		// 			Integer reqHeight = new Integer(squareDim);
+		// 			// Log.d(TAG,"reqWidth: "+reqWidth);
+		// 			// Log.d(TAG,"reqHeight: "+reqHeight);
+        //             opts.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+		// 			// Log.d(TAG,"opts.inSampleSize: "+opts.inSampleSize);
+		// 			opts.inJustDecodeBounds = false;
+		// 			/*Matrix matrix = new Matrix();
+		// 			matrix.postRotate(bitmapRotation);*/
+		// 			Bitmap myBitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),opts);
+		// 			// myBitmap = Bitmap.createBitmap(myBitmap,0,0,myBitmap.getWidth(),myBitmap.getHeight(),matrix,true);
+        //             ImageView imgView = new ImageView(ctx);
+        //             imgView.setImageBitmap(myBitmap);
+        //             imgView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+		// 			// ScrollView hsv = (ScrollView) activity.findViewById(activity.getResources().getIdentifier("hsv", "id", activity.getPackageName()));
+		// 			LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(squareDim,squareDim);
+        //             layout.setMargins(dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx));
+        //             imgView.setLayoutParams(layout);
+		// 			LinearLayout ln = (LinearLayout) activity.findViewById(activity.getResources().getIdentifier("gallery", "id", activity.getPackageName()));
+		// 			ln.addView(imgView,0);
+        //         }
+        //     });
+        // }
 	}
 
     /**
@@ -1161,6 +1163,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 					unlockFocus();
 					// Log.d(TAG,"DEPOIS DO UNLOCK FOCUS: "+System.currentTimeMillis());
                     showImageView(mFile,bitmapRotation);
+                    USANDO_CAMERA = 0;
 					mFile = new File(getActivity().getExternalFilesDir(null), System.currentTimeMillis()+".jpg");
                 }
             };
@@ -1168,6 +1171,7 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
             mCaptureSession.abortCaptures();
             mCaptureSession.capture(captureBuilder.build(), CaptureCallback, null);
         } catch (CameraAccessException e) {
+            USANDO_CAMERA = 0;
             e.printStackTrace();
         }
     }
@@ -1189,11 +1193,11 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 	public void setFlash(CaptureRequest.Builder requestBuilder){
 		if(isTorchOn){
 			// requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
-			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
+			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON_ALWAYS_FLASH);
 			requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_SINGLE);
 		}else{
 			// requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON_AUTO_FLASH);
-			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE,CaptureRequest.CONTROL_AE_MODE_ON);
+			requestBuilder.set(CaptureRequest.CONTROL_AE_MODE, CaptureRequest.CONTROL_AE_MODE_ON);
 			requestBuilder.set(CaptureRequest.FLASH_MODE, CaptureRequest.FLASH_MODE_OFF);
 		}
 	}
@@ -1233,26 +1237,29 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
             mCaptureSession.capture(mPreviewRequestBuilder.build(), mCaptureCallback,mBackgroundHandler);
             // After this, the camera will go back to the normal state of preview.
             mState = STATE_PREVIEW;
+            USANDO_CAMERA = 0;
             mCaptureSession.setRepeatingRequest(mPreviewRequest, mCaptureCallback,
                     mBackgroundHandler);
         } catch (CameraAccessException e) {
+            USANDO_CAMERA = 0;
             e.printStackTrace();
         }
     }
 
     @Override
     public void onClick(View view) {
-		Activity activity = getActivity();
-		int idPicture = activity.getResources().getIdentifier("picture", "id", activity.getPackageName());
-		int idInfo = activity.getResources().getIdentifier("info", "id", activity.getPackageName());
-		if(view.getId() == idPicture){
-			takePicture();
-		}else if(view.getId() == idInfo && null != activity){
-			new AlertDialog.Builder(activity)
-				.setMessage(activity.getResources().getIdentifier("intro_message", "string", activity.getPackageName()))
-				.setPositiveButton(android.R.string.ok, null)
-				.show();
-		}
+        Activity activity = getActivity();
+        int idPicture = activity.getResources().getIdentifier("picture", "id", activity.getPackageName());
+        int idInfo = activity.getResources().getIdentifier("info", "id", activity.getPackageName());
+        if(view.getId() == idPicture && USANDO_CAMERA == 0){
+            USANDO_CAMERA = 1;
+            takePicture();
+        }else if(view.getId() == idInfo && null != activity){
+            new AlertDialog.Builder(activity)
+                .setMessage(activity.getResources().getIdentifier("intro_message", "string", activity.getPackageName()))
+                .setPositiveButton(android.R.string.ok, null)
+                .show();
+        }
     }
 
     private void setAutoFlash(CaptureRequest.Builder requestBuilder) {

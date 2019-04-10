@@ -323,15 +323,15 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 						rImage.close();
 						if (null != output) {
 							try {
-								output.close();
-								// String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
+                                output.close();
+								String encodedImage = Base64.encodeToString(bytes, Base64.DEFAULT);
 								addFile(rFile.getAbsolutePath());
 								showToast("Foto tirada com sucesso.");
 								// showImageView(rImage);
 								// Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
                 				// mImageView.setImageBitmap(bitmap);
 								// addBase64(encodedImage);
-								// this.images.put(encodedImage);                                
+								// this.images.put(encodedImage);                       
 							} catch (IOException e) {
 								e.printStackTrace();
 							}
@@ -548,47 +548,47 @@ public class Camera2BasicFragment extends Fragment implements View.OnClickListen
 
     private void showImageView(final File f, int bitmapRotation){
         final Activity activity = getActivity();
-        return;
-        // if(activity != null){
-        //     activity.runOnUiThread(new Runnable() {
-        //         @Override
-        //         public void run() {
-		// 			// Camera2BasicFragment.this.countFotos++;
-		// 			// TextView text1 = (TextView) activity.findViewById(activity.getResources().getIdentifier("text1", "id", activity.getPackageName()));
-		// 			// text1.setText(Camera2BasicFragment.this.countFotos == 1 ? "1 foto" : Camera2BasicFragment.this.countFotos+" fotos");
-		// 			Context ctx = getContext();
-        //             BitmapFactory.Options options = new BitmapFactory.Options();
-        //             options.inJustDecodeBounds = true;
-        //             BitmapFactory.decodeFile(f.getAbsolutePath(),options);
-        //             int imageHeight = options.outHeight;
-        //             int imageWidth = options.outWidth;
-        //             String imageType = options.outMimeType;
-        //             BitmapFactory.Options opts = new BitmapFactory.Options();
-		// 			int squareDim = dpToPx(48,ctx);
-		// 			// Log.d(TAG,"dpToPx(48,ctx): "+squareDim);
-		// 			Integer reqWidth = new Integer(squareDim);
-		// 			Integer reqHeight = new Integer(squareDim);
-		// 			// Log.d(TAG,"reqWidth: "+reqWidth);
-		// 			// Log.d(TAG,"reqHeight: "+reqHeight);
-        //             opts.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
-		// 			// Log.d(TAG,"opts.inSampleSize: "+opts.inSampleSize);
-		// 			opts.inJustDecodeBounds = false;
-		// 			/*Matrix matrix = new Matrix();
-		// 			matrix.postRotate(bitmapRotation);*/
-		// 			Bitmap myBitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),opts);
-		// 			// myBitmap = Bitmap.createBitmap(myBitmap,0,0,myBitmap.getWidth(),myBitmap.getHeight(),matrix,true);
-        //             ImageView imgView = new ImageView(ctx);
-        //             imgView.setImageBitmap(myBitmap);
-        //             imgView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-		// 			// ScrollView hsv = (ScrollView) activity.findViewById(activity.getResources().getIdentifier("hsv", "id", activity.getPackageName()));
-		// 			LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(squareDim,squareDim);
-        //             layout.setMargins(dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx));
-        //             imgView.setLayoutParams(layout);
-		// 			LinearLayout ln = (LinearLayout) activity.findViewById(activity.getResources().getIdentifier("gallery", "id", activity.getPackageName()));
-		// 			ln.addView(imgView,0);
-        //         }
-        //     });
-        // }
+        // return;
+        if(activity != null){
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+					// Camera2BasicFragment.this.countFotos++;
+					// TextView text1 = (TextView) activity.findViewById(activity.getResources().getIdentifier("text1", "id", activity.getPackageName()));
+					// text1.setText(Camera2BasicFragment.this.countFotos == 1 ? "1 foto" : Camera2BasicFragment.this.countFotos+" fotos");
+					Context ctx = getContext();
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inJustDecodeBounds = true;
+                    BitmapFactory.decodeFile(f.getAbsolutePath(),options);
+                    int imageHeight = options.outHeight;
+                    int imageWidth = options.outWidth;
+                    String imageType = options.outMimeType;
+                    BitmapFactory.Options opts = new BitmapFactory.Options();
+					int squareDim = dpToPx(48,ctx);
+					// Log.d(TAG,"dpToPx(48,ctx): "+squareDim);
+					Integer reqWidth = new Integer(squareDim);
+					Integer reqHeight = new Integer(squareDim);
+					// Log.d(TAG,"reqWidth: "+reqWidth);
+					// Log.d(TAG,"reqHeight: "+reqHeight);
+                    opts.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+					// Log.d(TAG,"opts.inSampleSize: "+opts.inSampleSize);
+					opts.inJustDecodeBounds = false;
+					/*Matrix matrix = new Matrix();
+					matrix.postRotate(bitmapRotation);*/
+					Bitmap myBitmap = BitmapFactory.decodeFile(f.getAbsolutePath(),opts);
+					// myBitmap = Bitmap.createBitmap(myBitmap,0,0,myBitmap.getWidth(),myBitmap.getHeight(),matrix,true);
+                    ImageView imgView = new ImageView(ctx);
+                    imgView.setImageBitmap(myBitmap);
+                    imgView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+					// ScrollView hsv = (ScrollView) activity.findViewById(activity.getResources().getIdentifier("hsv", "id", activity.getPackageName()));
+					LinearLayout.LayoutParams layout = new LinearLayout.LayoutParams(squareDim,squareDim);
+                    layout.setMargins(dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx),dpToPx(16,ctx));
+                    imgView.setLayoutParams(layout);
+					LinearLayout ln = (LinearLayout) activity.findViewById(activity.getResources().getIdentifier("gallery", "id", activity.getPackageName()));
+					ln.addView(imgView,0);
+                }
+            });
+        }
 	}
 
     /**
